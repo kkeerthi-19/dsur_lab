@@ -1,0 +1,6 @@
+txt_data<-read.table("D:\\23-518\\spam.txt",header=TRUE,sep="\t")
+csv_data <- read.csv("D:\\23-518\\spam.csv", header=TRUE)
+write.csv(csv_data, "D:\\23-518\\output.csv", row.names=FALSE)
+write.table(txt_data, "D:\\23-518\\output.txt", sep="\t", row.names=FALSE, quote=FALSE)
+library(readxl)
+excel_data <- read_excel("path/to/your/file.xlsx")
