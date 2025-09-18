@@ -1,4 +1,7 @@
-boxplot(mpg ~ cyl, data = mtcars,
-        main = "Boxplot of MPG by Number of Cylinders",
-        xlab = "Number of Cylinders",
-        ylab = "Miles Per Gallon (MPG)")
+#box plot 
+library(ggplot2) 
+ggplot(data = iris, aes(x = Species, y = Sepal.Length)) + 
+geom_boxplot() + 
+labs(title = "Sepal Length Distribution by Species", 
+x = "Species", 
+y = "Sepal Length") 
