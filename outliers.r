@@ -1,26 +1,7 @@
-library(ggplot2)
-
-data(iris)
-
-find_outliers_iqr <- function(x) {
-  Q1 <- quantile(x, 0.25)
-  Q3 <- quantile(x, 0.75)
-  IQR <- Q3 - Q1
-  lower_bound <- Q1 - 1.5 * IQR
-  upper_bound <- Q3 + 1.5 * IQR
-  return(x < lower_bound | x > upper_bound)
-}
-num_cols <- sapply(iris, is.numeric)
-
-for (col_name in names(iris)[num_cols]) {
-  iris$outlier_flag <- find_outliers_iqr(iris[[col_name]])
-  p <- ggplot(iris, aes_string(x = "Species", y = col_name)) +
-    geom_boxplot() +
-    geom_point(data = subset(iris, outlier_flag), aes_string(x = "Species", y = col_name),
-               color = "red", size = 3) +
-    ggtitle(paste("Boxplot of", col_name, "by Species with Outliers Highlighted")) +
-    theme_minimal()
-  
-  print(p)
-}
+data <- c(10, 12, 13, 15, 16, 18, 19,33,3,36,63,99,32,15,6, 20, 22, 100, 105) 
+# Create a boxplot 
+boxplot(data, main = "Boxplot to Identify Outliers", ylab = "Values") 
+# Optional: print outliers detected by boxplot.stats 
+outliers <- boxplot.stats(data)$out 
+print(paste("Outliers:", paste(outliers, collapse = ", "))) 
 
