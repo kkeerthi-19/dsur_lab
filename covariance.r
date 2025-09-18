@@ -1,4 +1,3 @@
-data(iris)
-head(iris)
-ancova_model <- aov(Sepal.Length ~ Species + Petal.Length, data=iris)
-summary(ancova_model)
+# Compare Sepal.Length across species using ANOVA 
+anova_model <- aov(Sepal.Length ~ Species, data = iris) 
+summary(anova_model)
