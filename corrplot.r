@@ -1,3 +1,5 @@
-library(corrplot)
-cor_mat <- cor(iris[, 1:4])
-corrplot(cor_mat, method = "circle", type = "upper", addCoef.col = "black")
+# install.packages("corrplot") # run once if not installed 
+library(corrplot) 
+ 
+corrplot(cor_matrix, method = "circle", type = "upper", 
+tl.col = "black", tl.cex = 0.8)
